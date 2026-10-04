@@ -711,3 +711,43 @@ html.foot-reveal .foot{position:sticky;bottom:0;z-index:0}
 .vel-group span{font-weight:500;letter-spacing:-.04em;line-height:1.3;padding:.04em .2em .14em;color:#fff}
 .vel-group i{width:.3em;height:.3em;margin:0 .1em;background:var(--green)}
 .vel-row--out span{color:rgba(255,255,255,.34);-webkit-text-stroke:0}
+
+/* What we offer: photo backgrounds behind the scenes, with a slow drift while a scene is showing */
+.scene .bg{transform-box:fill-box;transform-origin:50% 50%}
+.scene.is-on .bg{animation:offer-drift 16s ease-in-out infinite alternate}
+@keyframes offer-drift{from{transform:scale(1.02) translate(0,0)}to{transform:scale(1.12) translate(-1.5%,-1.5%)}}
+@media (prefers-reduced-motion:reduce){.scene.is-on .bg{animation:none}}
+
+/* ===== v18: real contact icons (all pages) and no numbering ===== */
+.ic{display:inline-grid;place-items:center;flex:none;width:2.3rem;height:2.3rem;border-radius:50%;background:var(--blue);color:#fff;vertical-align:middle;transition:transform .45s cubic-bezier(.2,.7,.2,1),background .3s,box-shadow .3s}
+.ic svg{width:52%;height:52%;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;display:block}
+.ic-wa{background:#25d366;color:#fff}
+.ic-wa svg{fill:currentColor;stroke:none;width:58%;height:58%}
+.ic-pin{background:var(--leaf);color:var(--green-ink)}
+.reach{list-style:none;margin:0 0 1.6rem;padding:0;display:grid;gap:.7rem}
+.reach a{display:inline-flex;align-items:center;gap:.8rem;text-decoration:none}
+.reach a:hover .ic{transform:scale(1.12) rotate(-6deg)}
+.reach-pin{display:flex;align-items:flex-start;gap:.8rem}
+.menu .ic-tel,.menu .ic-mail,.foot .ic-tel,.foot .ic-mail,.menu .ic-pin{background:rgba(255,255,255,.14)}
+.foot .ic{width:2.1rem;height:2.1rem}
+.foot .reach a:hover .ic-tel,.foot .reach a:hover .ic-mail{background:var(--green)}
+.foot .reach a:hover .ic-wa{box-shadow:0 0 0 6px rgba(37,211,102,.25)}
+.btn .ic{width:1.5rem;height:1.5rem;margin:0 .55rem 0 -.35rem}
+.contact-card ul{list-style:none;margin:0;padding:0}
+.contact-card .cc-row{padding:0;border-top:1px solid var(--line)}
+.contact-card .cc-row:first-child{border-top:0}
+.contact-card .cc-row>a,.contact-card .cc-static{display:flex;align-items:center;gap:1rem;padding:1rem 0;text-decoration:none;color:var(--blue);font-weight:600}
+.contact-card .cc-static{color:var(--ink)}
+.contact-card .cc-row .ic{width:2.8rem;height:2.8rem}
+.contact-card .cc-row small{display:block;font-weight:400;font-size:.8rem;letter-spacing:.04em;color:var(--body);margin-bottom:2px}
+.contact-card .cc-row>a:hover .ic{transform:scale(1.1) rotate(-6deg);box-shadow:0 8px 20px rgba(1,3,149,.25)}
+.contact-card .cc-row>a:hover .ic-wa{box-shadow:0 8px 20px rgba(37,211,102,.4)}
+/* no numerals on the process steps or the story index */
+.step{grid-template-columns:28px 1fr 1fr}
+.step::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--lav);font-size:0;align-self:center}
+.step.is-on::before{background:var(--green);transform:scale(1.25)}
+@media (max-width:760px){.step{grid-template-columns:28px 1fr}.step p{grid-column:2}}
+.story-list a{grid-template-columns:1fr auto}
+.story .idx{display:none}
+@media (max-width:760px){.story-list a{grid-template-columns:1fr}.story-list .m{grid-column:1;text-align:left}}
+.contact-card .ic-pin{background:var(--green);color:#fff}

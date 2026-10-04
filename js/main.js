@@ -131,7 +131,7 @@
       var mid = window.innerHeight * 0.45, cur = -1;
       secs.forEach(function (s, i) { var r = s.getBoundingClientRect(); if (r.top < mid && r.bottom > mid) cur = i; });
       links.forEach(function (l, i) { l.classList.toggle("is-on", i === cur); });
-      rail.classList.toggle("on-dark", cur > -1 && /sec--night|hero/.test(secs[cur].className));
+      rail.classList.toggle("on-dark", cur > -1 && /sec--night/.test(secs[cur].className));
     };
     spy(); window.addEventListener("scroll", spy, { passive: true });
   }
